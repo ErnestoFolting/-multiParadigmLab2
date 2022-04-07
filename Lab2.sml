@@ -79,3 +79,22 @@ in dates_in_month(dateList,1)
 end 
 
 val ans4 = test4(); (*expected: [(2021,1,20),(2019,1,29)] *)
+
+(*5*)
+fun dates_in_months(dateList: (int*int*int) list, monthList: int list) = 
+if null monthList 
+then []
+else 
+    dates_in_month(dateList,hd monthList) @ dates_in_months(dateList,tl monthList)
+
+fun test5()=
+let val date1 = (2021,01,20)
+    val date2 = (2021,02,20)
+    val date3 = (2023,03,25)
+    val date4 = (2019,04,29)
+    val dateList = [date1,date2,date3,date4]
+    val monthList = [1,2,3]
+in dates_in_months(dateList,monthList)
+end 
+
+val ans5=  test5(); (*expected: [(2021,01,20),(2021,02,20),(2023,03,25)]*)
