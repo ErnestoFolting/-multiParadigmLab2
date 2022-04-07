@@ -59,3 +59,23 @@ in number_in_months(dateList,monthList)
 end 
 
 val ans3 = test3(); (*expected: 2*)
+
+(*4*)
+fun dates_in_month(dateList: (int*int*int) list, monthNumber: int) = 
+if null dateList 
+then []
+else 
+    if (#2 (hd dateList)) = monthNumber
+        then (hd dateList) :: dates_in_month(tl dateList,monthNumber)
+    else dates_in_month(tl dateList,monthNumber)
+
+fun test4()=
+let val date1 = (2021,01,20)
+    val date2 = (2021,02,20)
+    val date3 = (2023,03,25)
+    val date4 = (2019,01,29)
+    val dateList = [date1,date2,date3,date4]
+in dates_in_month(dateList,1)
+end 
+
+val ans4 = test4(); (*expected: [(2021,1,20),(2019,1,29)] *)
