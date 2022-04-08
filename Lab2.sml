@@ -121,3 +121,16 @@ end
 val ans6 = test6(); (*expected: "2222bbbb"*)
 
 (*7*)
+fun date_to_string(date:int*int*int) = 
+let val lst = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+in 
+get_nth(lst,#2 date) ^ " " ^(Int.toString (#3 date)) ^ ", " ^ (Int.toString (#1 date))
+end;
+
+fun test7()=
+let val date = (1991,8,24)
+in 
+date_to_string(date)
+end 
+
+val ans7 = test7();
