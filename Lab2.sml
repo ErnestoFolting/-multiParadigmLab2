@@ -154,3 +154,23 @@ number_before_reaching_sum(sum,lst)
 end 
 
 val ans8 = test8(); (*expected: 4*)
+
+
+(*9*)
+fun what_month(day:int)=
+if day > 0 andalso day < 366 
+then
+let val lst = [31,28,31,30,31,30,31,31,30,31,30,31]
+in 
+number_before_reaching_sum(day,lst) + 1
+end
+else 
+~1;
+
+fun test9()=
+let val day = 91
+in
+what_month(day)
+end
+
+val ans9 = test9(); (*expected: 4*)
