@@ -97,4 +97,27 @@ let val date1 = (2021,01,20)
 in dates_in_months(dateList,monthList)
 end 
 
-val ans5=  test5(); (*expected: [(2021,01,20),(2021,02,20),(2023,03,25)]*)
+val ans5 =  test5(); (*expected: [(2021,01,20),(2021,02,20),(2023,03,25)]*)
+
+(*6*)
+fun get_nth(lst: string list, n: int) =
+if null lst 
+then ""
+else 
+if n = 1 
+then hd lst 
+else 
+get_nth (tl lst, n-1);
+
+fun test6()=
+let val str1 = "1111aaaa"
+    val str2 = "2222bbbb"
+    val str3 = "3333cccc"
+    val lst = [str1,str2,str3]
+in
+get_nth(lst,2)
+end
+
+val ans6 = test6(); (*expected: "2222bbbb"*)
+
+(*7*)
