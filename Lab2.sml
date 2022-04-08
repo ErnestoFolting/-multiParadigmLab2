@@ -1,5 +1,3 @@
-(*year month day*)
-
 (*1*)
 fun is_older(firstDate: int*int*int ,secondDate: int*int*int) =
 if #1 firstDate < #1 secondDate 
@@ -190,3 +188,36 @@ month_range(day1,day2)
 end 
 
 val ans10 = test10(); (*expected: [3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4] *)
+
+(*11*)
+
+fun what_oldest_date(lst: (int*int*int) list) = 
+if null lst 
+then NONE  
+else 
+let 
+    fun oldest_nonempty(lst: (int*int*int) list)=
+    if null(tl lst)
+    then hd lst 
+    else  
+        let val tl_ans = oldest_nonempty(tl lst)
+        in 
+            if is_older(hd lst, tl_ans)
+            then hd lst
+            else tl_ans
+        end
+in 
+    SOME (oldest_nonempty lst)
+end;
+
+fun test11()=
+let val date1 = (2021,01,20)
+    val date2 = (2021,02,20)
+    val date3 = (2019,04,29)
+    val date4 = (2023,03,25) 
+    val dateList = [date1,date2,date3,date4]
+in 
+what_oldest_date(dateList)
+end
+
+val ans11 = test11(); (*expected: SOME (2019,4,29) *)
