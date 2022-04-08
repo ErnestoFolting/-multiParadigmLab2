@@ -174,3 +174,19 @@ what_month(day)
 end
 
 val ans9 = test9(); (*expected: 4*)
+
+(*10*)
+fun month_range(day1:int,day2:int) =
+if day1 > day2
+then []
+else 
+what_month(day1)::month_range(day1+1,day2);
+
+fun test10()=
+let val day1 = 80
+    val day2 = 95
+in
+month_range(day1,day2)
+end 
+
+val ans10 = test10(); (*expected: [3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4] *)
