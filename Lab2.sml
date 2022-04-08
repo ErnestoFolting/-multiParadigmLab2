@@ -133,4 +133,24 @@ in
 date_to_string(date)
 end 
 
-val ans7 = test7();
+val ans7 = test7();(*expected: August 24, 1991*)
+
+(*8*)
+fun number_before_reaching_sum(sum:int, lst: int list)=
+if null lst 
+then 0
+else 
+if(sum - hd lst > 0)
+then 
+number_before_reaching_sum(sum-hd lst, tl lst) + 1
+else 
+0;
+
+fun test8()=
+let val lst = [1,2,3,4,5]
+    val sum = 15
+in 
+number_before_reaching_sum(sum,lst)
+end 
+
+val ans8 = test8(); (*expected: 4*)
