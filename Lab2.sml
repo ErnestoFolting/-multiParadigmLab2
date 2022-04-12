@@ -188,12 +188,16 @@ else
 ~1;
 
 fun test9()=
-let val day = 91
+let val day1 = 32
+    val day2 = 91
+    val day3 = 365
 in
-what_month(day)
+(what_month(day1),
+what_month(day2),
+what_month(day3))
 end
 
-val ans9 = test9(); (*expected: 4*)
+val ans9 = test9(); (*expected: (2,4,12)*)
 
 (*10*)
 fun month_range(day1:int,day2:int) =
@@ -205,11 +209,15 @@ what_month(day1)::month_range(day1+1,day2);
 fun test10()=
 let val day1 = 80
     val day2 = 95
+    val day3 = 230
+    val day4 = 130
 in
-month_range(day1,day2)
+(month_range(day1,day2),
+month_range(day3,day4))
+
 end 
 
-val ans10 = test10(); (*expected: [3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4] *)
+val ans10 = test10(); (*expected: ([3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4],[]) *)
 
 (*11*)
 
@@ -238,8 +246,10 @@ let val date1 = (2021,01,20)
     val date3 = (2019,04,29)
     val date4 = (2023,03,25) 
     val dateList = [date1,date2,date3,date4]
+    val dateList2 = []
 in 
-what_oldest_date(dateList)
+(what_oldest_date(dateList),
+what_oldest_date(dateList2))
 end
 
-val ans11 = test11(); (*expected: SOME (2019,4,29) *)
+val ans11 = test11(); (*expected: (SOME (2019,4,29),NONE) *)
