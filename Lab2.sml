@@ -35,10 +35,12 @@ let val date1 = (2021,01,20)
     val date3 = (2023,01,25)
     val dataList = [date1,date2,date3]
     val monthNumber = 2;
-in number_in_month(dataList,1)
+in 
+(number_in_month(dataList,1),
+number_in_month(dataList,3))
 end
 
-val ans2 = test2() (*expected: 2*)
+val ans2 = test2() (*expected: (2,0)*)
 
 (*3*)
 fun number_in_months(dateList: (int*int*int) list, monthList: int list) = 
