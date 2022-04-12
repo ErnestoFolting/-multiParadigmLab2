@@ -46,8 +46,9 @@ val ans2 = test2() (*expected: (2,0)*)
 fun number_in_months(dateList: (int*int*int) list, monthList: int list) = 
 if null monthList orelse null dateList 
 then 0 
-else if number_in_month(dateList, hd monthList) <> 0
-    then number_in_months(dateList, tl monthList) + 1
+else 
+    if number_in_month(dateList, hd monthList) <> 0
+    then number_in_months(dateList, tl monthList) + number_in_month(dateList, hd monthList)
     else 
         number_in_months(dateList,tl monthList);
 
@@ -56,12 +57,17 @@ fun test3()=
 let val date1 = (2021,01,20)
     val date2 = (2021,02,20)
     val date3 = (2023,01,25)
+    val date4 = (1999,9,24)
     val dateList = [date1,date2,date3]
+    val dateList2 = [date1,date2,date2,date4]
     val monthList = [1,2,3]
-in number_in_months(dateList,monthList)
+    val monthList2 = [1,9]
+in 
+(number_in_months(dateList,monthList),
+number_in_months(dateList2,monthList2))
 end 
 
-val ans3 = test3(); (*expected: 2*)
+val ans3 = test3(); (*expected: (3,2) *)
 
 (*4*)
 fun dates_in_month(dateList: (int*int*int) list, monthNumber: int) = 
