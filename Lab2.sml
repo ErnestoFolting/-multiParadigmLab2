@@ -166,11 +166,14 @@ else
 fun test8()=
 let val lst = [1,2,3,4,5]
     val sum = 15
+    val lst2 = [10,5,1,5]
+    val sum2 = 16
 in 
-number_before_reaching_sum(sum,lst)
+(number_before_reaching_sum(sum,lst),
+number_before_reaching_sum(sum2,lst2))
 end 
 
-val ans8 = test8(); (*expected: 4*)
+val ans8 = test8(); (*expected: (4,2)*)
 
 
 (*9*)
