@@ -143,12 +143,14 @@ get_nth(lst,#2 date) ^ " " ^(Int.toString (#3 date)) ^ ", " ^ (Int.toString (#1 
 end;
 
 fun test7()=
-let val date = (1991,8,24)
+let val date1 = (1991,8,24)
+    val date2 = (2003,9,24)
 in 
-date_to_string(date)
+(date_to_string(date1),
+date_to_string(date2))
 end 
 
-val ans7 = test7();(*expected: August 24, 1991*)
+val ans7 = test7();(*expected: ("August 24, 1991","September 24, 2003")*)
 
 (*8*)
 fun number_before_reaching_sum(sum:int, lst: int list)=
