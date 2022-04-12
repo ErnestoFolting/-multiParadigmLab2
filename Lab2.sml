@@ -84,10 +84,12 @@ let val date1 = (2021,01,20)
     val date3 = (2023,03,25)
     val date4 = (2019,01,29)
     val dateList = [date1,date2,date3,date4]
-in dates_in_month(dateList,1)
+in 
+(dates_in_month(dateList,1),
+dates_in_month(dateList,4))
 end 
 
-val ans4 = test4(); (*expected: [(2021,1,20),(2019,1,29)] *)
+val ans4 = test4(); (*expected: ([(2021,1,20),(2019,1,29)],[]) *)
 
 (*5*)
 fun dates_in_months(dateList: (int*int*int) list, monthList: int list) = 
