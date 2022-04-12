@@ -11,10 +11,13 @@ else false;
 fun test1() =
 let val date1 = (2021,01,20)
     val date2 = (2021,02,20)
-in is_older(date1,date2)
+    val date3 = (2021,01,20)
+in 
+(is_older(date1,date2),
+is_older(date1,date3))
 end
 
-val ans1 = test1() (*expected: true*)
+val ans1 = test1() (*expected: (true,false) *)
 
 (*2*)
 fun number_in_month(dateList: (int*int*int) list, monthNumber:int) = 
