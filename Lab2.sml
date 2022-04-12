@@ -104,11 +104,14 @@ let val date1 = (2021,01,20)
     val date3 = (2023,03,25)
     val date4 = (2019,04,29)
     val dateList = [date1,date2,date3,date4]
+    val dateList2 = [date1,date4,date4]
     val monthList = [1,2,3]
-in dates_in_months(dateList,monthList)
+in 
+(dates_in_months(dateList,monthList),
+dates_in_months(dateList2,monthList))
 end 
 
-val ans5 =  test5(); (*expected: [(2021,01,20),(2021,02,20),(2023,03,25)]*)
+val ans5 =  test5(); (*expected: [(2021,01,20),(2021,02,20),(2023,03,25)], [(2021,01,20)]*)
 
 (*6*)
 fun get_nth(lst: string list, n: int) =
