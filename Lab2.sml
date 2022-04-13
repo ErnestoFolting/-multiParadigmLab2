@@ -214,7 +214,6 @@ let val day1 = 80
 in
 (month_range(day1,day2),
 month_range(day3,day4))
-
 end 
 
 val ans10 = test10(); (*expected: ([3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4],[]) *)
